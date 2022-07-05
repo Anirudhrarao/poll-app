@@ -1,0 +1,8 @@
+<div class="container">
+    <h2 class="alert-primary mt-2 text-center">Poll posted by {{request.user}}</h2>
+    <ul>
+        {% for poll in poll %}
+            <li style="font-size:30px">{{poll.questions}}</li>
+        {% endfor %}
+    </ul>
+</div>

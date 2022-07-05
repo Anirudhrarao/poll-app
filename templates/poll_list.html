@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% block title %}
+    <title>poll-page</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <table class="table">
+        <thead>
+         <tr>
+           <th scope="col">Poll no</th>
+           <th scope="col">Poll</th>
+           <th scope="col">Posted by</th>
+           <th scope="col">Vote</th>
+           <th scope="col">Result</th>
+         </tr>
+       </thead>
+        {% for poll in poll %}
+       <tbody>
+         <tr>
+           <th scope="row">{{poll.id}}</th>
+           <td>{{poll.questions}}</td>
+           <td>{{poll.user}}</td>
+           <td><a href="{% url 'vote-page' poll.id %}" class="btn btn-primary">Vote</a></td>
+           <td><a href="{% url 'result-page' poll.id %}" class="btn btn-primary">Result</a></td>
+         </tr>
+      
+       </tbody>
+        {% endfor %}
+     </table>
+</div>
+{% endblock %}
